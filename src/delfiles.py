@@ -6,8 +6,8 @@ def create_parser(): # We are not using any positional arguments so no need to s
     Creates a parser object that has the user set values.
     '''
     parser = argparse.ArgumentParser(description="Simple CLI to delete files in a folder")
-    parser.add_argument('-F', '--folder', dest="folder_path", help="Path of the folder where files will be deleted", default="./", required=True)
-    parser.add_argument('-D', '--dictionary', dest="dict_path", help="Path of the dictionary files containing the file names", required=True)
+    parser.add_argument('-F', '--folder', dest="folder_path", help="Path of the folder where files will be deleted", required=True)
+    parser.add_argument('-D', '--dictionary', dest="dict_path", help="Path of the dictionary files containing the file names or partial matching names", required=True)
     parser.add_argument("-E", '--exclude', action="store_true", default=False, help="Use this flag to delete everything except the ones mentioned in dictionary file")
     return parser.parse_args()
 
@@ -51,8 +51,11 @@ def main():
                             removed_files += 1
                         matched_files += 1
                         break # So that we needn't check the rest of the patterns
-
-        print(f'{matched_files}/{initial_files} files matched, and {removed_files}/{matched_files} files in matched files removed successfully')
+        
+        if parser_options.exclude is True:
+            print(f'{matched_files}/{initial_files} files matched, and {removed_files}/{initial_files - matched_files} files in non-matched files removed successfully !!!')
+        else: 
+            print(f'{matched_files}/{initial_files} files matched, and {removed_files}/{matched_files} files in matched files removed successfully !!!')
 
     except Exception as error:
         print(f"An error occured : {error}")
