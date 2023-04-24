@@ -27,5 +27,7 @@ The application comes with `4` flags.
 `delfiles --folder "./sample" --dictionary "dict.txt" --exclude`
 This deletes all the files in `sample` directory with names that doesn't match with any strings given on `dict.txt`
 
+### Additional:
+A `createfiles.py` can be used to create randomly generated files for you to delete, default is 30. You can edit the code as per your testing needs.
 ### Disclaimer:
 Feel free to download and mess around. Even create a PR. Have fun coding !!!
