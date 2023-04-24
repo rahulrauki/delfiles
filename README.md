@@ -5,7 +5,7 @@ Simple CLI to delete files from a folder
 `delfiles.py` is the main script that needs to be built.
 1. ### Dependencies:
     - python >= 3.8
-    - latest [pyinstaller](https://pypi.org/project/pyinstaller/)
+    - latest [pyinstaller](https://github.com/pyinstaller/pyinstaller)
 2. After necessary installations, navigate to the project directory in the terminal with `delfiles.py`.
 3. Type the command `pyinstaller --one-file delfiles.py`, you can set custom flags referring to the docs.
 4. This command will create 2 directories, `build` & `dist`
